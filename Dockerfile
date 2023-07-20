@@ -24,4 +24,4 @@ RUN sed -i -e 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
 ENV LANG zh_CN.UTF-8
 RUN wget https://download.oracle.com/java/20/latest/jdk-20_linux-x64_bin.tar.gz
 RUN tar -xvf jdk-20_linux-x64_bin.tar.gz
- 
+RUN apt update && apt install python3-pip python3-venv
