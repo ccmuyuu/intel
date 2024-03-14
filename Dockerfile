@@ -21,9 +21,4 @@ RUN sed -i -e 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
 ENV LANG zh_CN.UTF-8
 RUN apt update && apt install -y python3-pip python3-venv build-essential gfortran libopenblas-dev libopenmpi-dev libscalapack-openmpi-dev libfftw3-dev libhdf5-openmpi-dev libfftw3-mpi-dev cmake pkg-config
 COPY vasp.6.3.0.tgz /app
-RUN tar -xf /app/vasp.6.3.0.tgz
-COPY makefile.include /app/vasp.6.3.0
-RUN echo 'cd /app/vasp.6.3.0' >> /vasp.sh
-RUN echo 'make DEPS=1 -j' >> /vasp.sh
-RUN chmod 755 /vasp.sh
-CMD /vasp.sh
+
