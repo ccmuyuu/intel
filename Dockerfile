@@ -23,5 +23,5 @@ RUN sed -i -e 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
     update-locale LANG=zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
 RUN apt update && apt install -y python3-pip python3-venv build-essential gfortran libopenblas-dev libopenmpi-dev libscalapack-openmpi-dev libfftw3-dev libhdf5-openmpi-dev libfftw3-mpi-dev cmake pkg-config
-COPY vasp.6.3.0.tgz /app
+COPY vasp.6.3.0.tgz /
 
