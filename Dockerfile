@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive apt install qemu-kvm *zenhei* xz-utils dbus-x11 curl nano unzip autocutsel htop firefox-esr gnome-system-monitor mate-system-monitor  git xfce4 xfce4-terminal tightvncserver wget   -y
+RUN apt install qemu-kvm *zenhei* xz-utils dbus-x11 curl nano unzip autocutsel htop gnome-system-monitor mate-system-monitor  git xfce4 xfce4-terminal tightvncserver wget -y
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.tar.gz
 RUN tar -xvf v1.4.0.tar.gz
 RUN mkdir  $HOME/.vnc
@@ -19,7 +19,7 @@ RUN sed -i -e 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
-RUN apt update && apt install python3-pip python3-venv build-essential gfortran libopenblas-dev libopenmpi-dev libscalapack-openmpi-dev libfftw3-dev libhdf5-openmpi-dev libfftw3-mpi-dev cmake pkg-config
+RUN apt update && apt install -y python3-pip python3-venv build-essential gfortran libopenblas-dev libopenmpi-dev libscalapack-openmpi-dev libfftw3-dev libhdf5-openmpi-dev libfftw3-mpi-dev cmake pkg-config
 COPY vasp.6.3.0.tgz /app
 RUN tar -xf /app/vasp.6.3.0.tgz
 COPY makefile.include /app/vasp.6.3.0
