@@ -5,7 +5,10 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.tar.gz
 RUN tar -xvf v1.4.0.tar.gz
 RUN mkdir  $HOME/.vnc
 RUN echo 'zlSvLT5E23ARKq5HESl0zzMT5wUdQETSDi+dutUsWzU=' | vncpasswd -f > $HOME/.vnc/passwd
+RUN echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.vnc/xstartup
 RUN chmod 600 $HOME/.vnc/passwd
+RUN chmod 755 $HOME/.vnc/xstartup
+
 RUN echo 'whoami ' >>/test.sh
 RUN echo 'cd ' >>/test.sh
 RUN echo "su -l -c  'vncserver :2000 -geometry 1280x800' "  >>/test.sh
