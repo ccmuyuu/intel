@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian
 RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install qemu-kvm *zenhei* xz-utils dbus-x11 curl nano unzip autocutsel htop gnome-system-monitor mate-system-monitor  git xfce4 xfce4-terminal tightvncserver wget -y
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.tar.gz
@@ -8,7 +8,6 @@ RUN echo 'zlSvLT5E23ARKq5HESl0zzMT5wUdQETSDi+dutUsWzU=' | vncpasswd -f > $HOME/.
 RUN echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.vnc/xstartup
 RUN chmod 600 $HOME/.vnc/passwd
 RUN chmod 755 $HOME/.vnc/xstartup
-
 RUN echo 'whoami ' >>/test.sh
 RUN echo 'cd ' >>/test.sh
 RUN echo "su -l -c  'vncserver :2000 -geometry 1280x800' "  >>/test.sh
