@@ -4,7 +4,7 @@ services:
     ports:
       - '6901:6901'
     environment:
-      - VNC_PW='zlSvLT5E23ARKq5HESl0zzMT5wUdQETSDi+dutUsWzU='
+      - VNC_PW=zlSvLT5E23ARKq5HESl0zzMT5wUdQETSDi+dutUsWzU=
     image: 'kasmweb/ubuntu-jammy-desktop:1.14.0'
     volumes:
       - /data/vasp.6.3.0.tgz:/app/vasp.6.3.0.tgz
