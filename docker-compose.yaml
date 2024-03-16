@@ -9,4 +9,4 @@ services:
     volumes:
       - /data/vasp.6.3.0.tgz:/app/vasp.6.3.0.tgz
       - /data/makefile.tgz:/app/makefile.include
-    command: bash -c "apt-get update && apt-get install -y python3-pip python3-venv build-essential gfortran libopenblas-dev libopenmpi-dev libscalapack-openmpi-dev libfftw3-dev libhdf5-openmpi-dev libfftw3-mpi-dev cmake pkg-config"
+    command: bash -c "apt-get update && apt-get install -y python3-pip python3-venv build-essential gfortran libopenblas-dev libopenmpi-dev libscalapack-openmpi-dev libfftw3-dev libhdf5-openmpi-dev libfftw3-mpi-dev cmake pkg-config && tar -xvf /app/vasp.6.3.0.tgz -C /app/ && cp /app/makefile.include /app/vasp.6.3.0 && cd /app/vasp.6.3.0 && make DEPS=1 -j"
