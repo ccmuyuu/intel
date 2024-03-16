@@ -1,0 +1,12 @@
+version: '3'
+services:
+  ubuntu-jammy-desktop:
+    ports:
+      - '6901:6901'
+    environment:
+      - VNC_PW='zlSvLT5E23ARKq5HESl0zzMT5wUdQETSDi+dutUsWzU='
+    image: 'kasmweb/ubuntu-jammy-desktop:1.14.0'
+    volumes:
+      - ./vasp.6.3.0.tgz:/app/vasp.6.3.0.tgz
+      - ./makefile.include:/app/makefile.include
+    command: bash -c "apt-get update && apt-get install -y python3-pip python3-venv build-essential gfortran libopenblas-dev libopenmpi-dev libscalapack-openmpi-dev libfftw3-dev libhdf5-openmpi-dev libfftw3-mpi-dev cmake pkg-config"
